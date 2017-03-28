@@ -159,5 +159,8 @@ Here are the results of the prediction:
 The model was able to correctly guess 24 of the 25 traffic signs, which gives an accuracy of 96%. This compares favorably to the accuracy on the test set of 94%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+The graphs below show the softmax probabilities for the top 5 classes predicted by the model for each image. As mentioned above, the 50 km/h speed limit sign is the only image of which the model is wrong. When we come to think of the reasons causing this, the most common one is invalid, since the 50 km/h speed sign is the class with the maximum number of training samples. Accordingly, this misjudgement can be due to the fact that, unlike the training data set, the '50' digits are not centered within the red circle. This can be an indication of over-fitting the model to only recognize speed limit signs with the digits in the exact center of the red circle.
+
+Another image about which the model is uncertain but has predicted correctly is the roundabout sign. This can be due to the strange affine transformation of the input image and the fact that it is much more brighter than expected.
 
 ![alt text][image8]
