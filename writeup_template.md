@@ -118,22 +118,21 @@ My final model results were:
 * validation set accuracy of 99.1% 
 * test set accuracy of 94.0%
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+First, I used the LeNet model from the lectures preceeding the project after modifying it to accept RGB images as input and 43 classes as output. However, it had some limitations such as overfitting the train data causing poor validation accuracy. Accordingly, I investigated different architectures that are capable of handling such application, yet not complex to an unneeded extent.
+I came across this research paper: https://github.com/andrewazmy/CarND-Traffic-Sign-Classifier-Project/blob/master/mscn.pdf, carefully understood its content, and implemented the mentioned architecture. Overfitting was still an issue, however, there was a noticeble improvement over the LeNet, which led me to investigate possible modifications to improve the accuracy of the sermanet architecture. These modifications include:
+* Changing the filter dimensions to accept RGB input instead of greyscale images.
+* Adding a dropout after the first convolution layer to decrease the effect of over-fitting.
+From this point onwards, tunning of the paramaters was the key to achieving high accuracy. Learning rate, batch size, epoch count and keep probability were the parameters to be tuned. The aim was to reach a minimum difference between the training and validation accuracy, indicating that no over-fitting has occured, while at the same time reaching a high validation accuracy. After tunning, the below parameters were found to yield the best results:
+* Learning rate of 0.001
+* Batch size of 128
+* Epoch count of 30
+* Keep probability of 0.5
+The added dropout layer achieved its aim of reducing the effect of over-fitting.
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 
-###Test a Model on New Images
+### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
